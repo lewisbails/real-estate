@@ -24,7 +24,7 @@ DEFAULT_HEADERS: dict[str, str] = {
 }
 
 
-def domain_rental_istings(url: str, headers: Optional[dict] = None) -> list[Listing]:
+def domain_rental_listings(url: str, headers: Optional[dict] = None) -> list[Listing]:
     """
     Scrape listings information from Domain.com.au
 
@@ -87,7 +87,7 @@ def domain_rental_istings(url: str, headers: Optional[dict] = None) -> list[List
             if address_1 is None:
                 raise Exception("address not found")
 
-            item["street_address"] = address_1.text.split(",")[0].lower()
+            item["address"] = address_1.text.split(",")[0].lower()
 
             # address line 2
             address_2 = li.find("span", {"data-testid": "address-line2"})
@@ -130,5 +130,5 @@ def domain_rental_istings(url: str, headers: Optional[dict] = None) -> list[List
             items.append(item)
         except Exception as e:
             print(e)
-            traceback.print_exc()
+            # traceback.print_exc()
     return items
