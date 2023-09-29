@@ -2,7 +2,7 @@
 from typing import Optional, Annotated
 from datetime import datetime
 
-from pydantic import (BaseModel, ConfigDict, StringConstraints, PositiveInt, NonNegativeInt, StrictBool)
+from pydantic import BaseModel, ConfigDict, StringConstraints, PositiveInt, NonNegativeInt, StrictBool
 
 from real_estate.enums import STREET_TYPES, Provider, State, Dwelling, Council, Suburb
 
