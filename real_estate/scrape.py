@@ -8,7 +8,8 @@ import requests
 from bs4 import BeautifulSoup
 
 from real_estate.models import Listing
-from real_estate.util import SUBURB_COUNCIL_MAPPING, sanitise_address, sanitise_dwelling
+from real_estate.sanitise import address, dwelling
+from real_estate.util import SUBURB_COUNCIL_MAPPING
 
 DEFAULT_HEADERS: dict[str, str] = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0",
