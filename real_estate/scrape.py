@@ -8,6 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from real_estate.models import Listing
+from real_estate.util import SUBURB_COUNCIL_MAPPING, sanitise_address, sanitise_dwelling
 
 DEFAULT_HEADERS: dict[str, str] = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0",
@@ -97,12 +98,13 @@ def domain_rental_listings(url: str, headers: Optional[dict] = None) -> list[Lis
 
             address_2_comps = [s.text.lower() for s in address_2.find_all("span")]
             item = {**item, **({"suburb": address_2_comps[0], "state": address_2_comps[1], "postcode": address_2_comps[2]})}
+            item["council"] = SUBURB_COUNCIL_MAPPING[item["suburb"]]
 
-            # features
+            # bed, bath, parking, area
             features = {}
             for f in li.find_all("span", {"data-testid": "property-features-text-container"}):
                 fi = f.text.split()
-                if len(fi) == 2:  # bed, bath,
+                if len(fi) == 2:
                     try:
                         features[fi[1].lower()] = int(fi[0])
                     except ValueError:

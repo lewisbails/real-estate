@@ -1,0 +1,22 @@
+{
+    "st": "street",
+    "ave": "avenue",
+    "rd": "road",
+    "blvd": "boulevard",
+    "ln": "lane",
+    "ct": "court",
+    "crt": "court",
+    "dr": "drive",
+    "pkwy": "parkway",
+    "cir": "circle",
+    "pl": "place",
+    "ter": "terrace",
+    "tce": "terrace",
+    "hwy": "highway",
+    "plz": "plaza",
+    "aly": "alley",
+    "cres": "crescent",
+    "sq": "square",
+    "trl": "trail",
+    "rdg": "ridge"
+}
