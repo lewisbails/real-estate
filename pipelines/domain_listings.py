@@ -39,8 +39,12 @@ def main(args):
     client = MongoClient(args.uri, server_api=ServerApi("1"))
 
     # Send a ping to confirm a successful connection
-    client.admin.command("ping")
-    print("Pinged your deployment. You successfully connected to MongoDB!")
+    try:
+        client.admin.command("ping")
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+    except Exception:
+        log.exception("MongoDB connection problem")
+        raise
 
     # get collection
     db = client[args.db]
@@ -57,7 +61,11 @@ def main(args):
             except Exception:
                 log.exception("Couldn't insert listing")
     else:
-        html.raise_for_status()
+        try:
+            html.raise_for_status()
+        except requests.HTTPError:
+            log.exception(f"Couldn't reach {args.url}")
+            raise
 
 
 if __name__ == "__main__":
