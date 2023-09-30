@@ -9,11 +9,7 @@ from pymongo.server_api import ServerApi
 
 from real_estate.scrape import domain_rental_listings
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    filename=Path(__file__).parent.parent / 'logs/mongo_domain.log'
-)
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", filename=Path(__file__).parent.parent / "logs/mongo_domain.log")
 
 log = logging.getLogger(__name__)
 
