@@ -1,12 +1,23 @@
 """Scrape Domain.com.au listings"""
 import argparse
 import requests
+import logging
+from pathlib import Path
+
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 from real_estate.scrape import domain_rental_listings
 
-DOMAIN_URL = "https://www.domain.com.au/rent/adelaide-region-sa/?page=1"
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    filename=Path(__file__).parent.parent / 'logs/mongo_domain.log'
+)
+
+log = logging.getLogger(__name__)
+
+DOMAIN_URL = "https://www.domain.com.au/rent/adelaide-region-sa/?sort=dateupdated-desc&page=1"
 
 HEADERS: dict[str, str] = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0",
@@ -39,10 +50,13 @@ def main(args):
     # get html
     html = requests.get(args.url, headers=HEADERS)
 
-    # extract listings and insert into db
+    # extract listings, transform into standardised Listing form and load into db
     if html.ok:
-        listings = [listing.model_dump() for listing in domain_rental_listings(html)]
-        collection.insert_many(listings)
+        for listing in domain_rental_listings(html):
+            try:
+                collection.insert_one(listing.model_dump(by_alias=True))
+            except Exception:
+                log.exception("Couldn't insert listing")
     else:
         html.raise_for_status()
 
