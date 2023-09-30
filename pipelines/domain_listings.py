@@ -32,7 +32,6 @@ def main(args):
     client.admin.command("ping")
     print("Pinged your deployment. You successfully connected to MongoDB!")
 
-
     # get collection
     db = client[args.db]
     collection = db[args.collection]

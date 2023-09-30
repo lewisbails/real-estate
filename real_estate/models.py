@@ -4,7 +4,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict, StringConstraints, PositiveInt, NonNegativeInt, StrictBool
 
-from real_estate.enums import Provider, State, Dwelling, Council, Suburb
+from real_estate.enums import Provider, State, Council, Suburb
 
 
 class Listing(BaseModel):
@@ -26,4 +26,4 @@ class Listing(BaseModel):
     baths: PositiveInt
     parking: NonNegativeInt
     area: Optional[PositiveInt] = None
-    dwelling: Dwelling
+    dwelling: str

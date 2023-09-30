@@ -3,28 +3,14 @@ from enum import Enum
 
 from real_estate.util import SUBURB_COUNCIL_MAPPING
 
+class StrEnum(str, Enum):
+    def __str__(self):
+        return str(self.value)
 
-class Council(str, Enum):
-    """Australian council"""
+Suburb = StrEnum("Suburb", names={k.upper(): k.lower() for k in SUBURB_COUNCIL_MAPPING})
+Council = StrEnum("Council", names={v.upper(): v.lower() for v in SUBURB_COUNCIL_MAPPING.values()})
 
-    pass
-
-
-for council in SUBURB_COUNCIL_MAPPING.values():
-    setattr(Council, council.upper(), council.lower())
-
-
-class Suburb(str, Enum):
-    """Australian suburb"""
-
-    pass
-
-
-for suburb in SUBURB_COUNCIL_MAPPING:
-    setattr(Suburb, suburb.upper(), suburb.lower())
-
-
-class State(str, Enum):
+class State(StrEnum):
     """Australian state code"""
 
     SA = "sa"
@@ -37,7 +23,7 @@ class State(str, Enum):
     ACT = "act"
 
 
-class Provider(str, Enum):
+class Provider(StrEnum):
     """Australian property portal"""
 
     DOMAIN = "domain"
