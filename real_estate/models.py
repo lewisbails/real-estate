@@ -4,10 +4,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict, StringConstraints, PositiveInt, NonNegativeInt, StrictBool
 
-from real_estate.enums import STREET_TYPES, Provider, State, Dwelling, Council, Suburb
-
-
-STREET_RGX = rf".*(?:{'|'.join(STREET_TYPES)})$"
+from real_estate.enums import Provider, State, Dwelling, Council, Suburb
 
 
 class Listing(BaseModel):
@@ -15,12 +12,12 @@ class Listing(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
-    id: str
+    _id: str
     datetime: datetime
     provider: Provider
     rental: StrictBool
     price: PositiveInt
-    address: Annotated[str, StringConstraints(pattern=STREET_RGX)]
+    address: str
     suburb: Suburb
     state: State
     postcode: Annotated[str, StringConstraints(pattern=r"\d{4}")]

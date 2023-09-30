@@ -1,55 +1,32 @@
-"""Scrape listing information"""
+"""Scrape listings"""
 import datetime
 import re
-import traceback
-from typing import Optional
+import time
 
-import requests
 from bs4 import BeautifulSoup
+from geopy.geocoders import Nominatim
 
 from real_estate.models import Listing
-from real_estate.sanitise import address, dwelling
+from real_estate.enums import Council, Suburb, State, Provider
 from real_estate.util import SUBURB_COUNCIL_MAPPING
 
-DEFAULT_HEADERS: dict[str, str] = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0",
-    # "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.5",
-    "Accept-Encoding": "gzip, deflate",
-    "Connection": "keep-alive",
-    "Upgrade-Insecure-Requests": "1",
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "none",
-    "Sec-Fetch-User": "?1",
-    "Cache-Control": "max-age=0",
-}
+geolocator = Nominatim(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0")
 
 
-def domain_rental_listings(url: str, headers: Optional[dict] = None) -> list[Listing]:
+def domain_rental_listings(html: str) -> list[Listing]:
     """
     Scrape listings information from Domain.com.au
 
     Parameters
     ----------
-    url : str
-        Domain.com.au URL
-    headers : dict | None
-        Request headers
+    html : str
+        List view of rentals on Domain.com.au
 
     Returns
     -------
     list[dict]
         Listings
     """
-    if headers is None:
-        headers = DEFAULT_HEADERS
-    html = requests.get(url, headers=headers)
-    items = []
-
-    if not html.ok:
-        html.raise_for_status()
-
     # Get the current date
     current_date = datetime.datetime.now().date()
 
@@ -58,15 +35,16 @@ def domain_rental_listings(url: str, headers: Optional[dict] = None) -> list[Lis
 
     soup = BeautifulSoup(html.text, "html.parser")
 
+    items = []
     for li in soup.find("ul", {"data-testid": "results"}).find_all("li"):
         item = {}
 
         if not li.get("data-testid", "").startswith("listing"):
             continue
 
-        item["id"] = li.get("data-testid")
+        item["_id"] = li.get("data-testid").strip()
         item["datetime"] = midnight_datetime
-        item["provider"] = "domain"
+        item["provider"] = Provider("domain")
         item["rental"] = True
 
         try:
@@ -89,17 +67,20 @@ def domain_rental_listings(url: str, headers: Optional[dict] = None) -> list[Lis
             if address_1 is None:
                 raise Exception("address not found")
 
-            item["address"] = address_1.text.split(",")[0].lower()
-
-            # address line 2
             address_2 = li.find("span", {"data-testid": "address-line2"})
 
             if address_2 is None:
                 raise Exception("address line 2 not found")
 
-            address_2_comps = [s.text.lower() for s in address_2.find_all("span")]
-            item = {**item, **({"suburb": address_2_comps[0], "state": address_2_comps[1], "postcode": address_2_comps[2]})}
-            item["council"] = SUBURB_COUNCIL_MAPPING[item["suburb"]]
+            item["address"] = geolocator.geocode(address_1.text + address_2.text).address.strip()
+            time.sleep(1)  # Nominatim rate limit
+
+            suburb, state, postcode = [s.text.lower().strip() for s in address_2.find_all("span")]
+
+            item["suburb"] = Suburb(suburb)
+            item["state"] = State(state)
+            item["postcode"] = postcode
+            item["council"] = Council(SUBURB_COUNCIL_MAPPING[suburb])
 
             # bed, bath, parking, area
             features = {}
@@ -124,7 +105,7 @@ def domain_rental_listings(url: str, headers: Optional[dict] = None) -> list[Lis
             for div in features_wrapper.find_all("div"):
                 if div.get("data-testid", "").startswith("property-features"):
                     continue
-                item["dwelling"] = div.text.lower()
+                item["dwelling"] = div.text.lower().strip()
                 break
             else:
                 continue

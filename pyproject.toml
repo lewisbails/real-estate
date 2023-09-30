@@ -9,7 +9,6 @@ packages = [{include = "real_estate"}]
 [tool.poetry.dependencies]
 python = ">=3.9,<3.13"
 beautifulsoup4 = "^4.12.2"
-requests = "^2.31.0"
 pydantic = "^2.4.2"
 geopy = "^2.4.0"
 
@@ -21,6 +20,7 @@ ipykernel = "^6.25.2"
 cem = "^0.1.9"
 pandas = "^2.1.1"
 pymongo = "^4.5.0"
+requests = "^2.31.0"
 
 [tool.poetry.group.style]
 optional = true

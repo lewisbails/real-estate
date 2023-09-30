@@ -5,6 +5,8 @@ from real_estate.util import SUBURB_COUNCIL_MAPPING
 
 
 class Council(str, Enum):
+    """Australian council"""
+
     pass
 
 
@@ -13,6 +15,8 @@ for council in SUBURB_COUNCIL_MAPPING.values():
 
 
 class Suburb(str, Enum):
+    """Australian suburb"""
+
     pass
 
 
@@ -21,15 +25,20 @@ for suburb in SUBURB_COUNCIL_MAPPING:
 
 
 class State(str, Enum):
+    """Australian state code"""
+
     SA = "sa"
+    WA = "wa"
+    NSW = "nsw"
+    NT = "nt"
+    QLD = "qld"
+    VIC = "vic"
+    TAS = "tas"
+    ACT = "act"
 
 
 class Provider(str, Enum):
+    """Australian property portal"""
+
     DOMAIN = "domain"
     REALESTATE = "realestate"
-
-
-class Dwelling(str, Enum):
-    HOUSE = "house"
-    APARTMENT = "apartment"
-    TOWNHOUSE = "townhouse"
