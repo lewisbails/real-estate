@@ -1,6 +1,7 @@
 """Pydantic models"""
 from typing import Optional, Annotated
 from datetime import datetime
+from importlib.metadata import metadata
 
 from pydantic import BaseModel, ConfigDict, StringConstraints, PositiveInt, NonNegativeInt, StrictBool
 
@@ -27,3 +28,4 @@ class Listing(BaseModel):
     parking: NonNegativeInt
     area: Optional[PositiveInt] = None
     dwelling: str
+    version: Optional[str] = metadata("real_estate").get("version")
