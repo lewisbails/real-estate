@@ -42,7 +42,7 @@ def domain_rental_listings(html: str) -> list[Listing]:
         if not li.get("data-testid", "").startswith("listing"):
             continue
 
-        item["_id"] = li.get("data-testid").strip()
+        item["id"] = li.get("data-testid").strip()
         item["datetime"] = midnight_datetime
         item["provider"] = Provider("domain")
         item["rental"] = True
@@ -124,5 +124,4 @@ def domain_rental_listings(html: str) -> list[Listing]:
             items.append(item)
         except Exception as e:
             print(e)
-            # traceback.print_exc()
     return items

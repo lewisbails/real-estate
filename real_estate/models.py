@@ -3,17 +3,17 @@ from typing import Optional, Annotated
 from datetime import datetime
 from importlib.metadata import metadata
 
-from pydantic import BaseModel, ConfigDict, StringConstraints, PositiveInt, NonNegativeInt, StrictBool
+from pydantic import BaseModel, ConfigDict, StringConstraints, PositiveInt, NonNegativeInt, StrictBool, Field
 
 from real_estate.enums import Provider, State, Council, Suburb
 
 
 class Listing(BaseModel):
-    """A listing"""
+    """A real estate listing"""
 
     model_config = ConfigDict(from_attributes=True)
 
-    _id: str
+    id: str = Field(alias="_id")
     datetime: datetime
     provider: Provider
     rental: StrictBool
