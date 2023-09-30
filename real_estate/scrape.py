@@ -42,7 +42,7 @@ def domain_rental_listings(html: str) -> list[Listing]:
         if not li.get("data-testid", "").startswith("listing"):
             continue
 
-        item["id"] = li.get("data-testid").strip()
+        item["_id"] = li.get("data-testid").strip()
         item["datetime"] = midnight_datetime
         item["provider"] = Provider("domain")
         item["rental"] = True
