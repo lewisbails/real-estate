@@ -1,4 +1,5 @@
 """Scrape Domain.com.au listings"""
+import os
 import argparse
 import requests
 import logging
@@ -33,6 +34,8 @@ HEADERS: dict[str, str] = {
 def main(args):
     """Extract listings and persist"""
     # Create a new client and connect to the server
+    if args.uri is None:
+        args.uri = os.environ["MONGODB_URI"]
     client = MongoClient(args.uri, server_api=ServerApi("1"))
 
     # Send a ping to confirm a successful connection
@@ -59,9 +62,9 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Scraper for Domain rental listings")
-    parser.add_argument("--uri", type=str, required=True, help="MongoDB uri")
-    parser.add_argument("--db", type=str, required=True, help="Database name")
-    parser.add_argument("--collection", type=str, required=True, help="Collection name")
+    parser.add_argument("--uri", type=str, help="MongoDB uri")
+    parser.add_argument("--db", type=str, default="real-estate", help="Database name")
+    parser.add_argument("--collection", type=str, default="listings", help="Collection name")
     parser.add_argument("--url", type=str, default=DOMAIN_URL, help="URL for Domain.com.au rental list-view")
     args = parser.parse_args()
     main(args)
