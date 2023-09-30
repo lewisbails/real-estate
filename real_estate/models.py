@@ -22,8 +22,8 @@ class Listing(BaseModel):
     state: State
     postcode: Annotated[str, StringConstraints(pattern=r"\d{4}")]
     council: Council
-    beds: PositiveInt
-    baths: PositiveInt
+    bed: PositiveInt
+    bath: PositiveInt
     parking: NonNegativeInt
     area: Optional[PositiveInt] = None
     dwelling: str
