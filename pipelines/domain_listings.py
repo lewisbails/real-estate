@@ -33,6 +33,8 @@ HEADERS: dict[str, str] = {
 
 def main(args):
     """Extract listings and persist"""
+    log.info("Scraping listings...")
+
     # Create a new client and connect to the server
     if args.uri is None:
         args.uri = os.environ["MONGODB_URI"]
@@ -54,10 +56,12 @@ def main(args):
     html = requests.get(args.url, headers=HEADERS)
 
     # extract listings, transform into standardised Listing form and load into db
+    scraped = 0
     if html.ok:
         for listing in domain_rental_listings(html):
             try:
                 collection.insert_one(listing.model_dump(by_alias=True))
+                scraped += 1
             except Exception:
                 log.exception("Couldn't insert listing")
     else:
@@ -66,6 +70,8 @@ def main(args):
         except requests.HTTPError:
             log.exception(f"Couldn't reach {args.url}")
             raise
+
+    log.info(f"Finished. Scraped {scraped} listings")
 
 
 if __name__ == "__main__":
