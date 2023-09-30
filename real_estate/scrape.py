@@ -1,5 +1,4 @@
 """Scrape listings"""
-import warnings
 import datetime
 import re
 import time
@@ -72,19 +71,19 @@ def domain_rental_listings(html: str) -> list[Listing]:
 
             if address_2 is None:
                 raise Exception("address line 2 not found")
-            
+
             location = geolocator.geocode(address_1.text + address_2.text)
 
             if location is None:
                 time.sleep(1)  # Nominatim rate limit
-                location = geolocator.geocode(address_1.text.split(maxsplit=1)[-1] + address_2.text)  # try drop street number    
-            
+                location = geolocator.geocode(address_1.text.split(maxsplit=1)[-1] + address_2.text)  # try drop street number
+
             address = location.address.strip() if location else (address_1.text + address_2.text).strip()
 
             time.sleep(1)  # Nominatim rate limit
 
             item["address"] = address
-            
+
             suburb, state, postcode = [s.text.lower().strip() for s in address_2.find_all("span")]
 
             item["suburb"] = Suburb(suburb)
