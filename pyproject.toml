@@ -18,7 +18,6 @@ optional = true
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"
 cem = "^0.1.9"
-pandas = "^2.1.1"
 pymongo = "^4.5.0"
 requests = "^2.31.0"
 
