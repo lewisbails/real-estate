@@ -54,7 +54,7 @@ def domain_rental_listings(html: str) -> list[Listing]:
             if price is None:
                 raise Exception("price not found")
 
-            match = re.search(r"\$?(\d+)", price.text)
+            match = re.search(r"\$?(\d+)", price.text.replace(",", ""))
 
             if match is None:
                 raise Exception(f"weird looking price: {price.text}")
