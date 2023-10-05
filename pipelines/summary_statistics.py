@@ -2,7 +2,7 @@
 import logging
 import argparse
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import pandas as pd
@@ -29,9 +29,11 @@ def main(args):  # noqa: D103
     db = client[args.db]
     collection = db[args.collection]
 
+    since = datetime.now() - timedelta(days=30)
+
     pipeline = [
         {
-            "$match": {"rental": True},
+            "$match": {"rental": True, "datetime": {"$gte": since}},
         },
         {
             "$group": {
@@ -55,7 +57,7 @@ def main(args):  # noqa: D103
         df = df.rename(columns={"_id": "council"}).set_index("council").rename(COUNCIL_LOWER_MAPPING).sort_values("max rent").round()
         tbl = df.to_markdown(tablefmt="github")
         md = open(Path(__file__).parent.parent / "README.md", "r").read()
-        md = re.sub(r"## Statistics\n[\s\S]*\n(?=##)", lambda m: f"## Statistics\nAs of {datetime.now().strftime('%d-%m-%y')}\:\n{tbl}\n", md)
+        md = re.sub(r"## Statistics\n[\s\S]*\n(?=##)", lambda m: f"## Statistics\nSince {since.strftime('%d-%m-%y')}\:\n{tbl}\n", md)
         open(Path(__file__).parent.parent / "README.md", "w").write(md)
 
 
