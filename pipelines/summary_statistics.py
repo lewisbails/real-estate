@@ -54,7 +54,7 @@ def main(args):  # noqa: D103
 
     if results:
         df = pd.DataFrame.from_records(results)
-        df = df.rename(columns={"_id": "council"}).set_index("council").rename(COUNCIL_LOWER_MAPPING).sort_values("max rent").round()
+        df = df.rename(columns={"_id": "council"}).set_index("council").rename(COUNCIL_LOWER_MAPPING).sort_values("average rent").round()
         tbl = df.to_markdown(tablefmt="github")
         md = open(Path(__file__).parent.parent / "README.md", "r").read()
         md = re.sub(r"## Statistics\n[\s\S]*\n(?=##)", lambda m: f"## Statistics\nSince {since.strftime('%d-%m-%y')}\:\n{tbl}\n", md)
