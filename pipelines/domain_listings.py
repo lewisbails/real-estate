@@ -38,7 +38,7 @@ def main(args):
     # Create a new client and connect to the server
     if args.uri is None:
         args.uri = os.environ["MONGODB_URI"]
-        
+
     client = MongoClient(args.uri, server_api=ServerApi("1"))
 
     # Send a ping to confirm a successful connection

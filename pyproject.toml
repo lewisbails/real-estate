@@ -38,7 +38,7 @@ pytest = "^7.4.2"
 pytest-cov = "^4.1.0"
 
 [tool.black]
-line-length = 550
+line-length = 250
 
 [tool.flake8]
 exclude = [".git" , "__pycache__", "venv"]
@@ -46,7 +46,7 @@ ignore = ["D400", "E203", "W"]
 count = true
 show-source = true
 statistics = true
-max-line-length = 550
+max-line-length = 250
 docstring-convention = "numpy"
 
 [build-system]
