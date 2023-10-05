@@ -36,6 +36,7 @@ def main(args):  # noqa: D103
         {
             "$group": {
                 "_id": "$council",
+                "count": {"$sum": 1},
                 "average rent": {"$avg": "$price"},
                 "max rent": {"$max": "$price"},
                 "min rent": {"$min": "$price"},
