@@ -5,7 +5,7 @@ script_dir=$(dirname "$0")
 cd "$script_dir/.."
 
 # Run the summary_statistics.py script with the provided URI
-poetry run pipelines/summary_statistics.py --uri "$2"
+poetry run pipelines/summary_statistics.py --uri "$1"
 
 # Check if the script was successful
 if [ $? -eq 0 ]; then
