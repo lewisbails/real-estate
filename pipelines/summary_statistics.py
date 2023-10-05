@@ -15,14 +15,16 @@ logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(name)s - %(leve
 
 log = logging.getLogger(__name__)
 
-def main(args):
+
+def main(args):  # noqa: D103
     client = MongoClient(args.uri, server_api=ServerApi("1"))
 
     try:
         client.admin.command("ping")
         print("Pinged your deployment. You successfully connected to MongoDB!")
-    except Exception as e:
+    except Exception:
         log.exception("MongoDB connection problem")
+        raise
 
     db = client[args.db]
     collection = db[args.collection]
@@ -41,8 +43,8 @@ def main(args):
                 "max bedrooms": {"$max": "$bed"},
                 "average bathrooms": {"$avg": "$bath"},
                 "max bathrooms": {"$max": "$bath"},
-        }
-        }   
+            }
+        },
     ]
 
     results = collection.aggregate(pipeline)
@@ -54,6 +56,7 @@ def main(args):
         md = open(Path(__file__).parent.parent / "README.md", "r").read()
         md = re.sub(r"## Statistics\n[\s\S]*\n(?=##)", lambda m: f"## Statistics\nAs of {datetime.now().strftime('%d-%m-%y')}\:\n{tbl}\n", md)
         open(Path(__file__).parent.parent / "README.md", "w").write(md)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Gather summary statistics from mongodb listings collection")
