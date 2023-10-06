@@ -1,5 +1,6 @@
 """Pull listings down from database and calculate some summary statistics"""
 import logging
+import os
 import argparse
 import re
 from datetime import datetime, timedelta
