@@ -17,6 +17,12 @@ log = logging.getLogger(__name__)
 
 
 def main(args):  # noqa: D103
+    log.info("Generating summary statistics...")
+
+    # Create a new client and connect to the server
+    if args.uri is None:
+        args.uri = os.environ["MONGODB_URI"]
+
     client = MongoClient(args.uri, server_api=ServerApi("1"))
 
     try:
