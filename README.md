@@ -1,5 +1,8 @@
 # Causal Inference For Real Estate in Adelaide
 
+![pytest](https://github.com/lewisbails/real-estate/actions/workflows/pytest.yml/badge.svg?event=push&branch=master)
+![style](https://github.com/lewisbails/real-estate/actions/workflows/style.yml/badge.svg?event=push&branch=master)
+
 * How much does the number of bedrooms or bathrooms affect the asking price for rentals in Adelaide? What about the type of dwelling?
 * Using coarsened exact match, a matching method for causal inference, we aim to provide answers to such questions.
 
