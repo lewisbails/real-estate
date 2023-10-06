@@ -15,7 +15,7 @@ python pipelines/domain_listings.py
 ```
 
 ## Statistics
-Since 05-09-23\:
+Since 06-09-23\:
 | council                                          |   count |   average rent |   max rent |   min rent |   average bedrooms |   max bedrooms |   average bathrooms |   max bathrooms |
 |--------------------------------------------------|---------|----------------|------------|------------|--------------------|----------------|---------------------|-----------------|
 | The Barossa Council                              |       2 |            328 |        355 |        300 |                  2 |              2 |                   1 |               1 |
@@ -41,12 +41,5 @@ Since 05-09-23\:
 | City Of Holdfast Bay                             |       9 |            741 |       1500 |        450 |                  3 |              4 |                   1 |               2 |
 | Light Regional Council                           |       1 |            750 |        750 |        750 |                  5 |              5 |                   3 |               3 |
 | City Of Burnside                                 |      10 |            769 |       1280 |        310 |                  3 |              5 |                   2 |               3 |
-
-## Matching
-...
-
-## Estimates
-...
-
 ## Conclusions
 ...
