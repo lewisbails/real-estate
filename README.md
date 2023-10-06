@@ -42,10 +42,10 @@ Since 05-09-23\:
 | Light Regional Council                           |       1 |            750 |        750 |        750 |                  5 |              5 |                   3 |               3 |
 | City Of Burnside                                 |      10 |            769 |       1280 |        310 |                  3 |              5 |                   2 |               3 |
 
-## Method
+## Matching
 ...
 
-## Results
+## Estimates
 ...
 
 ## Conclusions
