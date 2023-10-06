@@ -3,22 +3,13 @@
 ![pytest](https://github.com/lewisbails/real-estate/actions/workflows/pytest.yml/badge.svg?event=push&branch=main)
 ![style](https://github.com/lewisbails/real-estate/actions/workflows/style.yml/badge.svg?event=push&branch=main)
 
-* How much does the number of bedrooms or bathrooms affect the asking price for rentals in Adelaide? What about the type of dwelling?
-* Using coarsened exact matching, a matching method for causal inference, we aim to provide answers to such questions.
+In this study, we aim to estimate the causal effect of the number of bedrooms, number of bathrooms, location, and dwelling type on the weekly rental asking price for properties in Adelaide.
+We employ causal exact matching to reduce the sensitivity of such treatment effect estimates to model specification.
 
-## Setup
+## Data
 
-For development:
-
-```bash
-poetry install --with dev,test,style
-```
-
-
-## Data Collection
-
-* Data was scraped periodically from various online real estate portals, transformed into a standard format, and loaded into a NoSQL database (MongoDB).
-
+Rental listings have been periodically scraped from various online real estate portals, transformed into a standard `Listing` format, and loaded into a NoSQL database (MongoDB).
+The pipeline for this can be ran manually as below:
 ```bash
 python pipelines/domain_listings.py
 ```
@@ -50,6 +41,12 @@ Since 05-09-23\:
 | City Of Holdfast Bay                             |       9 |            741 |       1500 |        450 |                  3 |              4 |                   1 |               2 |
 | Light Regional Council                           |       1 |            750 |        750 |        750 |                  5 |              5 |                   3 |               3 |
 | City Of Burnside                                 |      10 |            769 |       1280 |        310 |                  3 |              5 |                   2 |               3 |
-## Results
 
+## Method
+...
+
+## Results
+...
+
+## Conclusions
 ...
