@@ -4,14 +4,24 @@
 ![style](https://github.com/lewisbails/real-estate/actions/workflows/style.yml/badge.svg?event=push&branch=main)
 
 In this study, we aim to estimate the causal effect of the number of bedrooms, number of bathrooms, location, and dwelling type on the weekly rental asking price for properties in Adelaide.
-We employ causal exact matching to reduce the sensitivity of such treatment effect estimates to model specification.
+We use coarsened exact matching to reduce the sensitivity of such treatment effect estimates to model specification.
+
+## Setup
+
+```bash
+poetry install
+```
 
 ## Data
 
-Rental listings have been periodically scraped from various online real estate portals, transformed into a standard `Listing` format, and loaded into a NoSQL database (MongoDB).
+An ETL pipeline is run daily to scrape rental listings from various online real estate portals, transform them into a standard `Listing` format, and store them in a NoSQL database (MongoDB).
 The pipeline for this can be ran manually as below:
 ```bash
-python pipelines/domain_listings.py
+poetry run python pipelines/domain_listings.py \
+--uri <MONGODB URI> \
+--db <DB NAME> \
+--collection <COLLECTION NAME> \
+--url <DOMAIN URL>
 ```
 
 ## Statistics
