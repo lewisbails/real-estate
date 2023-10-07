@@ -11,13 +11,13 @@ python = ">=3.9,<3.13"
 beautifulsoup4 = "^4.12.2"
 pydantic = "^2.4.2"
 geopy = "^2.4.0"
+cem = "^1.0.0"
 
 [tool.poetry.group.dev]
 optional = true
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"
-cem = "^0.1.9"
 pymongo = "^4.5.0"
 requests = "^2.31.0"
 pandas = "^2.1.1"

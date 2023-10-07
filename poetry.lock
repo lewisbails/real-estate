@@ -116,13 +116,13 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "cem"
-version = "0.1.9"
+version = "1.0.0"
 description = "Coarsened Exact Matching for Causal Inference"
 optional = false
 python-versions = ">=3.9,<3.13"
 files = [
-    {file = "cem-0.1.9-py3-none-any.whl", hash = "sha256:89bfafa9ef6e7268a41f2a0076926647b7759623c5d80ed4df7c454be3de7688"},
-    {file = "cem-0.1.9.tar.gz", hash = "sha256:b908209567d3cdc4ebce8801a9b9981767267e8df89f0b720ac49b7ec66ec7d2"},
+    {file = "cem-1.0.0-py3-none-any.whl", hash = "sha256:053835dd86c9e9ef60343ac57913bf4bd1d8d19d7e7b13d0362bb1a0ca0be42c"},
+    {file = "cem-1.0.0.tar.gz", hash = "sha256:c28817243f4ff6d6460dc639a9851c38b3643eade72c090e6a8a8b3cc5651db3"},
 ]
 
 [package.dependencies]
@@ -2351,4 +2351,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "1413b3ee89d21763d240cd8651f5f9537ca162e905a3136a17530ede5d2142e2"
+content-hash = "ba0c64457044596d58caa99735cf6610271de0f90ddea95099537eec365b80bb"
