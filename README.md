@@ -52,5 +52,108 @@ Since 07-09-23\:
 | Light Regional Council                                 |       1 |            750 |        750 |        750 |                  5 |              5 |                   3 |               3 |
 | City Of Burnside                                       |      10 |            769 |       1280 |        310 |                  3 |              5 |                   2 |               3 |
 | City Of Holdfast Bay                                   |      11 |            841 |       1900 |        450 |                  3 |              5 |                   1 |               2 |
+## Method
+
+### No Matching
+
+...
+
+### Exact Matching
+
+...
+
+### Coarsened Exact Matching
+
+...
+
+#### Council
+
+...
+
+#### Bathrooms
+
+...
+
+#### Parking
+
+...
+
+## Results
+
+### Bedrooms
+
+<pre>
+<table class="simpletable">
+<caption>WLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>price</td>      <th>  R-squared:         </th> <td>   0.086</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>WLS</td>       <th>  Adj. R-squared:    </th> <td>   0.083</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   27.68</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sat, 07 Oct 2023</td> <th>  Prob (F-statistic):</th> <td>2.76e-07</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>21:03:26</td>     <th>  Log-Likelihood:    </th> <td>    -inf</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   297</td>      <th>  AIC:               </th> <td>     inf</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   295</td>      <th>  BIC:               </th> <td>     inf</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>        <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>constant</th> <td>  370.5619</td> <td>   39.460</td> <td>    9.391</td> <td> 0.000</td> <td>  292.904</td> <td>  448.220</td>
+</tr>
+<tr>
+  <th>bed</th>      <td>   71.3951</td> <td>   13.570</td> <td>    5.261</td> <td> 0.000</td> <td>   44.688</td> <td>   98.102</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>408.078</td> <th>  Durbin-Watson:     </th> <td>   1.982</td> 
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>68528.996</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 6.288</td>  <th>  Prob(JB):          </th> <td>    0.00</td> 
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td>76.345</td>  <th>  Cond. No.          </th> <td>    14.4</td> 
+</tr>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre>
+
 ## Conclusions
+
+### Bedrooms
+
+For rental properties in Adelaide, each additional bedroom will add, on average, $71.39 a week. This controls for dwelling type, location, bathrooms and parking spaces.
+
+### Council
+
+...
+
+### Bathrooms
+
+...
+
+### Parking
+
 ...
