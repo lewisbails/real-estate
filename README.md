@@ -4,7 +4,8 @@
 ![style](https://github.com/lewisbails/real-estate/actions/workflows/style.yml/badge.svg?event=push&branch=main)
 
 In this study, we aim to estimate the causal effect of the number of bedrooms, number of bathrooms, location, and dwelling type on the weekly rental asking price for properties in Adelaide.
-We use coarsened exact matching to reduce the sensitivity of such treatment effect estimates to model specification.
+
+Faced with significant covariate imbalance, simply controlling for confounding variables (e.g. in a OLS regression model) can lead to effect estimates that are sensitive to model specification. Exact matching aims to eliminate this imbalance altogether, but can lead to discarding a large number of observations. This results in not only imprecise treatment effect estimates (larger standard errors), but more importantly in a sample that is not reflective of the population! In this study, we opt for coarsened exact matching, which has the effect of monotonically reducing multidimensional covariate imbalance whilst also maintaining a reasonably-sized and representative sample.
 
 ## Setup
 
@@ -15,7 +16,7 @@ poetry install
 ## Data
 
 An ETL pipeline is run daily to scrape rental listings from various online real estate portals, transform them into a standard `Listing` format, and store them in a NoSQL database (MongoDB).
-The pipeline for this can be ran manually as below:
+The pipeline can be ran manually as below:
 ```bash
 poetry run python pipelines/domain_listings.py \
 --uri <MONGODB URI> \
@@ -144,7 +145,7 @@ Since 07-09-23\:
 
 ### Bedrooms
 
-For rental properties in Adelaide, each additional bedroom will add, on average, $71.39 a week. This controls for dwelling type, location, bathrooms and parking spaces.
+For rental properties in Adelaide, each additional bedroom will add, on average, $71.39 a week. This estimation is independent of dwelling type, location, bathrooms and parking spaces.
 
 ### Council
 
