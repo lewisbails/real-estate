@@ -88,25 +88,25 @@ Since 10-09-23\:
 <table class="simpletable">
 <caption>WLS Regression Results</caption>
 <tr>
-  <th>Dep. Variable:</th>          <td>price</td>      <th>  R-squared:         </th> <td>   0.086</td>
+  <th>Dep. Variable:</th>          <td>price</td>      <th>  R-squared:         </th> <td>   0.171</td>
 </tr>
 <tr>
-  <th>Model:</th>                   <td>WLS</td>       <th>  Adj. R-squared:    </th> <td>   0.083</td>
+  <th>Model:</th>                   <td>WLS</td>       <th>  Adj. R-squared:    </th> <td>   0.169</td>
 </tr>
 <tr>
-  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   27.68</td>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   82.16</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 07 Oct 2023</td> <th>  Prob (F-statistic):</th> <td>2.76e-07</td>
+  <th>Date:</th>             <td>Tue, 10 Oct 2023</td> <th>  Prob (F-statistic):</th> <td>5.77e-18</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>21:03:26</td>     <th>  Log-Likelihood:    </th> <td>    -inf</td>
+  <th>Time:</th>                 <td>08:02:59</td>     <th>  Log-Likelihood:    </th> <td>    -inf</td>
 </tr>
 <tr>
-  <th>No. Observations:</th>      <td>   297</td>      <th>  AIC:               </th> <td>     inf</td>
+  <th>No. Observations:</th>      <td>   400</td>      <th>  AIC:               </th> <td>     inf</td>
 </tr>
 <tr>
-  <th>Df Residuals:</th>          <td>   295</td>      <th>  BIC:               </th> <td>     inf</td>
+  <th>Df Residuals:</th>          <td>   398</td>      <th>  BIC:               </th> <td>     inf</td>
 </tr>
 <tr>
   <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
@@ -120,33 +120,34 @@ Since 10-09-23\:
       <td></td>        <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
 </tr>
 <tr>
-  <th>constant</th> <td>  370.5619</td> <td>   39.460</td> <td>    9.391</td> <td> 0.000</td> <td>  292.904</td> <td>  448.220</td>
+  <th>constant</th> <td>  275.8905</td> <td>   28.248</td> <td>    9.767</td> <td> 0.000</td> <td>  220.357</td> <td>  331.424</td>
 </tr>
 <tr>
-  <th>bed</th>      <td>   71.3951</td> <td>   13.570</td> <td>    5.261</td> <td> 0.000</td> <td>   44.688</td> <td>   98.102</td>
+  <th>bed</th>      <td>   87.1731</td> <td>    9.617</td> <td>    9.064</td> <td> 0.000</td> <td>   68.266</td> <td>  106.080</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td>408.078</td> <th>  Durbin-Watson:     </th> <td>   1.982</td> 
+  <th>Omnibus:</th>       <td>474.359</td> <th>  Durbin-Watson:     </th> <td>   1.953</td> 
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>68528.996</td>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>45603.240</td>
 </tr>
 <tr>
-  <th>Skew:</th>          <td> 6.288</td>  <th>  Prob(JB):          </th> <td>    0.00</td> 
+  <th>Skew:</th>          <td> 5.329</td>  <th>  Prob(JB):          </th> <td>    0.00</td> 
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td>76.345</td>  <th>  Cond. No.          </th> <td>    14.4</td> 
+  <th>Kurtosis:</th>      <td>54.212</td>  <th>  Cond. No.          </th> <td>    14.7</td> 
 </tr>
 </table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
 </pre>
 
 ## Conclusions
 
 ### Bedrooms
 
-For rental properties in Adelaide, each additional bedroom will add, on average, $71.39 a week. This estimation is independent of dwelling type, location, bathrooms and parking spaces.
+For rental properties in Adelaide, each additional bedroom will add, on average, $87.17 a week. This estimation is independent of dwelling type, location, bathrooms and parking spaces.
 
 ### Council
 
