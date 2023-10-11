@@ -68,21 +68,11 @@ Since 10-09-23\:
 
 ...
 
-#### Council
-
-...
-
-#### Bathrooms
-
-...
-
-#### Parking
-
-...
-
 ## Results
 
 ### Bedrooms
+
+#### Regression
 
 <pre>
 <table class="simpletable">
@@ -143,20 +133,12 @@ Since 10-09-23\:
 
 </pre>
 
+#### Residuals
+
+...
+
 ## Conclusions
 
 ### Bedrooms
 
 For rental properties in Adelaide, each additional bedroom will add, on average, $87.17 a week. This estimation is independent of dwelling type, location, bathrooms and parking spaces.
-
-### Council
-
-...
-
-### Bathrooms
-
-...
-
-### Parking
-
-...
