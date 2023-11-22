@@ -26,34 +26,32 @@ poetry run python pipelines/domain_listings.py \
 ```
 
 ## Statistics
-Since 20-09-23\:
+Since 23-10-23\:
 | council                                                |   count |   average rent |   max rent |   min rent |   average bedrooms |   max bedrooms |   average bathrooms |   max bathrooms |
 |--------------------------------------------------------|---------|----------------|------------|------------|--------------------|----------------|---------------------|-----------------|
-| Mid Murray Council                                     |       1 |            380 |        380 |        380 |                  3 |              3 |                   1 |               1 |
-| The Barossa Council                                    |       4 |            444 |        600 |        300 |                  3 |              4 |                   1 |               2 |
-| Town Of Gawler                                         |      10 |            455 |        550 |        400 |                  3 |              4 |                   2 |               3 |
-| City Of Playford                                       |      89 |            465 |        620 |        235 |                  3 |              5 |                   2 |               3 |
-| City Of Salisbury                                      |      83 |            502 |        850 |        320 |                  3 |              4 |                   1 |               3 |
-| City Of Port Adelaide Enfield & City of Tea Tree Gully |       2 |            518 |        575 |        460 |                  4 |              4 |                   2 |               2 |
-| City Of Prospect                                       |       6 |            519 |        620 |        405 |                  3 |              5 |                   1 |               3 |
-| Mount Barker District Council                          |      27 |            522 |        690 |        340 |                  3 |              4 |                   2 |               3 |
-| City Of Onkaparinga                                    |      60 |            528 |        800 |        350 |                  3 |              5 |                   1 |               2 |
-| City of Prospect & City Of Port Adelaide Enfield       |      15 |            547 |       1150 |        325 |                  2 |              4 |                   1 |               2 |
-| City Of Tea Tree Gully                                 |      37 |            556 |        740 |        390 |                  3 |              4 |                   1 |               2 |
-| Corporation Of The City Of Adelaide                    |      62 |            560 |       1300 |        195 |                  2 |              3 |                   1 |               2 |
-| City Of West Torrens                                   |      44 |            564 |        850 |        270 |                  3 |              5 |                   1 |               3 |
-| City Of Port Adelaide Enfield                          |     103 |            570 |       1600 |        290 |                  3 |              7 |                   2 |               4 |
-| Corporation Of The City Of Unley                       |      47 |            578 |       1080 |        340 |                  2 |              4 |                   1 |               2 |
-| City Of Charles Sturt                                  |     103 |            595 |       1400 |        195 |                  3 |              4 |                   1 |               3 |
-| City Of Campbelltown                                   |      42 |            596 |        900 |        310 |                  3 |              4 |                   2 |               3 |
-| City Of Marion                                         |      60 |            610 |       1250 |        330 |                  3 |              5 |                   2 |               3 |
-| City Of Mitcham                                        |      26 |            652 |       1980 |        320 |                  3 |              5 |                   2 |               3 |
-| Corporation Of The Town Of Walkerville                 |      15 |            667 |       1200 |        420 |                  3 |              4 |                   2 |               3 |
-| City Of Holdfast Bay                                   |      27 |            675 |       1900 |        360 |                  3 |              5 |                   1 |               2 |
-| Adelaide Hills Council                                 |      20 |            693 |       1400 |        400 |                  3 |              5 |                   1 |               2 |
-| City Of Norwood Payneham & St Peters                   |      45 |            693 |       1800 |        330 |                  3 |              5 |                   1 |               2 |
-| City Of Burnside                                       |      39 |            708 |       2000 |        310 |                  3 |              6 |                   2 |               4 |
-| Light Regional Council                                 |       1 |            750 |        750 |        750 |                  5 |              5 |                   3 |               3 |
+| Town Of Gawler                                         |       7 |            412 |        460 |        360 |                  3 |              3 |                   1 |               2 |
+| City Of Playford                                       |      93 |            490 |        750 |        270 |                  3 |              5 |                   2 |               4 |
+| City Of Salisbury                                      |      55 |            510 |        900 |        280 |                  3 |              4 |                   1 |               3 |
+| City Of Port Adelaide Enfield & City of Tea Tree Gully |       3 |            517 |        600 |        430 |                  2 |              3 |                   1 |               1 |
+| City Of Onkaparinga                                    |      45 |            522 |        680 |        345 |                  3 |              5 |                   1 |               2 |
+| City Of Port Adelaide Enfield                          |      88 |            531 |        950 |         50 |                  3 |              4 |                   1 |               3 |
+| City Of Tea Tree Gully                                 |      34 |            539 |        850 |        400 |                  3 |              4 |                   1 |               2 |
+| City Of West Torrens                                   |      53 |            551 |        900 |        310 |                  3 |              5 |                   1 |               3 |
+| City Of Marion                                         |      66 |            562 |       1050 |        250 |                  3 |              8 |                   1 |               2 |
+| Mount Barker District Council                          |      22 |            565 |       1200 |        410 |                  3 |              5 |                   2 |               2 |
+| Corporation Of The City Of Adelaide                    |      63 |            570 |       1400 |        300 |                  2 |              4 |                   1 |               3 |
+| City of Prospect & City Of Port Adelaide Enfield       |      10 |            573 |        700 |        440 |                  3 |              4 |                   2 |               2 |
+| City Of Campbelltown                                   |      30 |            583 |        800 |        300 |                  3 |              4 |                   1 |               2 |
+| City Of Charles Sturt                                  |      91 |            630 |       1500 |        350 |                  3 |              5 |                   2 |               3 |
+| City Of Mitcham                                        |      26 |            638 |       1200 |        370 |                  3 |              6 |                   1 |               3 |
+| Light Regional Council                                 |       1 |            650 |        650 |        650 |                  4 |              4 |                   2 |               2 |
+| Adelaide Hills Council                                 |      20 |            650 |       1400 |        420 |                  3 |              5 |                   2 |               3 |
+| Corporation Of The Town Of Walkerville                 |       5 |            655 |        925 |        480 |                  3 |              4 |                   1 |               3 |
+| City Of Norwood Payneham & St Peters                   |      50 |            673 |       3000 |        350 |                  3 |              5 |                   1 |               3 |
+| Corporation Of The City Of Unley                       |      41 |            675 |       2000 |        300 |                  3 |              4 |                   1 |               4 |
+| City Of Prospect                                       |       4 |            678 |       1200 |        400 |                  2 |              3 |                   2 |               2 |
+| City Of Holdfast Bay                                   |      34 |            699 |       1400 |        430 |                  3 |              5 |                   2 |               3 |
+| City Of Burnside                                       |      41 |            714 |       2300 |        280 |                  3 |              5 |                   2 |               3 |
 ## Method
 
 ### No Matching

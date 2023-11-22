@@ -4,13 +4,15 @@ import argparse
 import requests
 import logging
 from pathlib import Path
+from tqdm import tqdm
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 from real_estate.scrape import domain_rental_listings
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", filename=Path(__file__).parent.parent / "logs/mongo_domain.log")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+                    filename=Path(__file__).parent.parent / "logs/mongo_domain.log")
 
 log = logging.getLogger(__name__)
 
@@ -55,12 +57,12 @@ def main(args):
 
     # extract listings, transform into standardised Listing form and load into db
     scraped = 0
-    for i in range(1, 5):
+    for i in tqdm(range(1, 5)):
         url = DOMAIN_URL + str(i)
         # get html
         html = requests.get(url, headers=HEADERS)
         if html.ok:
-            for listing in domain_rental_listings(html):
+            for listing in tqdm(domain_rental_listings(html)):
                 try:
                     collection.insert_one(listing.model_dump(by_alias=True))
                     scraped += 1
@@ -77,9 +79,12 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("Scraper for Domain rental listings. Will look at first 3 list-view pages of Domain.com.au")
+    parser = argparse.ArgumentParser(
+        "Scraper for Domain rental listings. Will look at first N list-view pages of Domain.com.au")
     parser.add_argument("--uri", type=str, help="MongoDB uri")
-    parser.add_argument("--db", type=str, default="real-estate", help="Database name")
-    parser.add_argument("--collection", type=str, default="listings", help="Collection name")
+    parser.add_argument(
+        "--db", type=str, default="real-estate", help="Database name")
+    parser.add_argument("--collection", type=str,
+                        default="listings", help="Collection name")
     args = parser.parse_args()
     main(args)
