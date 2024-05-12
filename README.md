@@ -52,9 +52,6 @@ Since 23-10-23\:
 | City Of Prospect                                       |       4 |            678 |       1200 |        400 |                  2 |              3 |                   2 |               2 |
 | City Of Holdfast Bay                                   |      34 |            699 |       1400 |        430 |                  3 |              5 |                   2 |               3 |
 | City Of Burnside                                       |      41 |            714 |       2300 |        280 |                  3 |              5 |                   2 |               3 |
-## Method
-
-### Coarsened Exact Matching
 
 ## Results
 
