@@ -54,17 +54,7 @@ Since 23-10-23\:
 | City Of Burnside                                       |      41 |            714 |       2300 |        280 |                  3 |              5 |                   2 |               3 |
 ## Method
 
-### No Matching
-
-...
-
-### Exact Matching
-
-...
-
 ### Coarsened Exact Matching
-
-...
 
 ## Results
 
@@ -129,10 +119,6 @@ Since 23-10-23\:
 </tr>
 </table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 </pre>
-
-#### Residuals
-
-...
 
 ## Conclusions
 
